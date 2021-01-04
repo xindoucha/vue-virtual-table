@@ -1,24 +1,81 @@
-# vue2-virtual-scroll-list
+# vue-virtual-table
+## Introduction
+This is a table plugin based on vue2.x. Realize the table display of a large amount of data through the virtual list.
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+## Installation
+```sh
+npm install vue-virtual-table -S
 ```
 
-### Compiles and minifies for production
-```
-npm run build
+## Usage
+```js
+import virtualTable from 'vue-virtual-table'
+
+ 
+Vue.use(virtualTable);
 ```
 
-### Lints and fixes files
-```
-npm run lint
+## Example
+```vue
+<template>
+  <div>
+    <virtual-list :remain="16" :size="20" :items="arr" :variable="true">
+      <div slot-scope="{visibleData}">
+        <div v-for="(item) in visibleData" :key="item.id"  ref="items" :vid="item.id">
+            {{item.id}}-{{item.age}}-{{item.name}}
+        </div>
+      </div>
+    </virtual-list>
+  </div>
+</template>
+
+<script>
+export default {
+  name:'example',
+  data(){
+    return {
+      arr:[]
+    }
+  },
+  created() {
+    this.genData();
+  },
+  methods:{
+    genData() {
+      for (let i = 0; i < 100; i++) {
+        this.arr.push({
+          id:i,
+          name:"titile"+i,
+          age:20 + i
+        })
+      }
+    }
+  }
+}
+</script>
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Options
+### remain
++ Type: Number
++ Required: True
+>Number of items to display.
+### size
++ Type: Number
++ Required: True
+>Estimated height of each row.
+
+### items
++ Type: Array
++ Required: True
+> Data to be displayed.
+
+### variable 
++ Type: Boolean
++ Required: False
++ default: False
+> Whether to adjust the scroll bar position according to the actual height, the default is false.
+
+## Keywords
+vue virtual table scroller
+
