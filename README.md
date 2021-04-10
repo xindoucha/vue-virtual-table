@@ -1,15 +1,15 @@
-# vue-virtual-table
+# vue2-virtual-table
 ## Introduction
 This is a table plugin based on vue2.x. Realize the table display of a large amount of data through the virtual list.
 
 ## Installation
 ```sh
-npm install vue-virtual-table -S
+npm install vue2-virtual-table -S
 ```
 
 ## Usage
 ```js
-import virtualTable from 'vue-virtual-table'
+import virtualTable from 'vue2-virtual-table'
 
  
 Vue.use(virtualTable);

@@ -17,7 +17,10 @@ export default {
     size: Number, // Row height
     remain: Number, // Number of renderings
     items: Array, // Rendering data
-    variable: Boolean // Variable height
+    variable: {
+      type:Boolean,
+      default:false
+    } // Variable height
   },
   data() {
     return {
@@ -48,6 +51,15 @@ export default {
     this.$refs.viewport.style.height = this.size * this.remain + "px";
     this.$refs.scrollBar.style.height = this.items.length * this.size + "px";
     this.cacheList();
+  },
+  watch:{
+    items:{
+      handler(){
+        this.$refs.scrollBar.style.height = this.items.length * this.size + "px";
+        this.cacheList();
+      },
+      immediate:true
+    }
   },
   updated() {
     this.$nextTick(() => {
