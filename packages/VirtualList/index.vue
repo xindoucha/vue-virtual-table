@@ -55,8 +55,10 @@ export default {
   watch:{
     items:{
       handler(){
-        this.$refs.scrollBar.style.height = this.items.length * this.size + "px";
-        this.cacheList();
+        this.$nextTick(()=>{
+          this.$refs.scrollBar.style.height = this.items.length * this.size + "px";
+          this.cacheList();
+        })
       },
       immediate:true
     }
