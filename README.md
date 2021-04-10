@@ -10,7 +10,7 @@ npm install vue2-virtual-table -S
 ## Usage
 ```js
 import virtualTable from 'vue2-virtual-table'
-
+import "vue2-virtual-table/lib/virtualList.css"
  
 Vue.use(virtualTable);
 ```
