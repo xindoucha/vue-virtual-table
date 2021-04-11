@@ -61,6 +61,12 @@ export default {
         })
       },
       immediate:true
+    },
+    visibleData:{
+      handler(val) {
+        this.$emit("visibleDataChange",val);
+      },
+      immediate:true
     }
   },
   updated() {

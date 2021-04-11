@@ -72,9 +72,12 @@ export default {
 
 ### variable 
 + Type: Boolean
-+ Required: False
 + default: False
 > Whether to adjust the scroll bar position according to the actual height, the default is false.
+
+### visibleDataChange
++ Type: Function
+> Event triggered when visible data changes.
 
 ## Keywords
 vue virtual table scroller
